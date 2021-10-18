@@ -3,6 +3,7 @@ package Test;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.*;
 
 public class ApiUsers {
 
@@ -17,6 +18,8 @@ public class ApiUsers {
                 when().
                 get(url).
                 then().
-                statusCode(200);
+                statusCode(200).
+                body(containsString("aqua sky"));
     }
+
 }
